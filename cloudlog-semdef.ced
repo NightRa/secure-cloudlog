@@ -1,0 +1,2 @@
+annotation:comment('/bootstrap':defines('/cloudlog':genericRule('/cloudlog':rule(A,B)),A::'/cloudlog':axiom,'/bootstrap':semanticDefinition),!'These say that rules are semantic definitions for the components of the rule; the rules are defined by their behavior').
+'/bootstrap':defines('/cloudlog':genericRule('/cloudlog':rule(A,B)),B::'/cloudlog':axiom,'/bootstrap':semanticDefinition).
