@@ -1,0 +1,2 @@
+'/cloudlog':genericRule('/cloudlog':rule(axiom(clause(H,B),Wi,Ri),'/cloudlog':clause(secGoal(H,permissions(Rq,Wq)),'/cloudlog':conj('/cloudlog':local(derive(Rq,Ri)),'/cloudlog':conj('/cloudlog':local(derive(Wi,Wq)),secGoal(B,permissions(Rq,Wq))))))).
+'/cloudlog':genericRule('/cloudlog':clause(secGoal('/cloudlog':true,permissions(R,W)),'/cloudlog':true)).
