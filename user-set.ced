@@ -1,0 +1,21 @@
+'/bootstrap':defAtom(userset::'/bootstrap':type).
+'/bootstrap':signature(atom(A)::userset,[A::'/bootstrap':typedTerm]).
+'/bootstrap':projection(atom(A)::userset,'/bootstrap':horiz(['/bootstrap':lineBorder('/bootstrap':vis(A::'/bootstrap':typedTerm),1,cpi:rgb(0,0,0))])).
+'/bootstrap':signature(exclusive(A,B)::'/bootstrap':pred,[A::'/bootstrap':typedTerm,B::'/bootstrap':typedTerm]).
+'/util':behavior(exclusive(A,B)::'/bootstrap':pred,!'Exclusive atoms are atoms which may not intersect, e.g. users, but groups may intersect with users or groups',_).
+'/util':behavior(atom(!'user1'::'/bootstrap':string)::userset,!'An atom is a userset of the corresponding type',_).
+'/bootstrap':signature(and(A,B)::userset,[A::userset,B::userset]).
+'/bootstrap':projection(and(A,B)::userset,'/bootstrap':brackets('/bootstrap':horiz(['/bootstrap':vis(A::userset),'/bootstrap':symbol(8743),'/bootstrap':vis(B::userset)]),40,41)).
+'/util':behavior(and(atom(!'user1'::'/bootstrap':string),atom(!'user2'::'/bootstrap':string))::userset,!'Usersets have intersections',_).
+'/bootstrap':signature(or(A,B)::userset,[A::userset,B::userset]).
+'/bootstrap':projection(or(A,B)::userset,'/bootstrap':brackets('/bootstrap':horiz(['/bootstrap':vis(A::userset),'/bootstrap':symbol(8744),'/bootstrap':vis(B::userset)]),40,41)).
+'/util':behavior(or(atom(!'user1'::'/bootstrap':string),atom(!'user2'::'/bootstrap':string))::userset,!'Usersets have unions',_).
+'/bootstrap':defAtom(top::userset).
+'/bootstrap':projection(top::userset,'/bootstrap':horiz(['/bootstrap':symbol(8868)])).
+'/util':behavior(top::userset,!'Top (universe) is a userset for any type',_).
+'/bootstrap':defAtom(bottom::userset).
+'/bootstrap':projection(bottom::userset,'/bootstrap':horiz(['/bootstrap':symbol(8869)])).
+'/util':behavior(bottom::userset,!'Bottom (empty set) is a userset for any type',_).
+'/bootstrap':signature(derive(A,B)::'/bootstrap':pred,[A::userset,B::userset]).
+'/bootstrap':projection(derive(A,B)::'/bootstrap':pred,'/bootstrap':horiz(['/bootstrap':vis(A::userset),'/bootstrap':symbol(8669),'/bootstrap':vis(B::userset)])).
+'/util':behavior(derive(A,B)::'/bootstrap':pred,!'Subset is a relation between sets',_).

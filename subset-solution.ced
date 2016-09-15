@@ -1,0 +1,17 @@
+'/util':behavior(derive(and(A,B),A)::'/bootstrap':pred,!'Intersection of sets: Should be able to extract fields',derive(and(and(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string)),atom(!'C'::'/bootstrap':string)),atom(!'A'::'/bootstrap':string))).
+derive(A,A):-builtin:true.
+derive(and(A,B),C):-derive(A,C).
+derive(and(A,B),C):-derive(B,C).
+'/util':behavior(derive(and(and(A,B),C),and(A,C))::'/bootstrap':pred,!'Introduction of intersection', (derive(and(and(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string)),atom(!'C'::'/bootstrap':string)),and(atom(!'A'::'/bootstrap':string),atom(!'C'::'/bootstrap':string))),\+derive(atom(!'A'::'/bootstrap':string),and(atom(!'A'::'/bootstrap':string),atom(!'C'::'/bootstrap':string))))).
+derive(C,and(A,B)):-derive(C,A),derive(C,B).
+'/util':behavior(derive(A,top)::'/bootstrap':pred,!'Everything is a subset of the universe (top)',derive(atom(!'A'::'/bootstrap':string),top)).
+derive(A,top):-builtin:true.
+'/util':behavior(derive(A,or(A,B))::'/bootstrap':pred,!'Union of sets: Introduction',derive(atom(!'A'::'/bootstrap':string),or(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string)))).
+derive(C,or(A,B)):-derive(C,A).
+derive(C,or(A,B)):-derive(C,B).
+'/util':behavior(derive(or(A,and(A,B)),A)::'/bootstrap':pred,!'Elimination of union',derive(or(atom(!'A'::'/bootstrap':string),and(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string))),atom(!'A'::'/bootstrap':string))).
+derive(or(A,B),C):-derive(A,C),derive(B,C).
+'/util':behavior(derive(bottom,A)::'/bootstrap':pred,!'The empty set is a subset of every set',derive(bottom,atom(!'A'::'/bootstrap':string))).
+derive(bottom,A):-builtin:true.
+'/bootstrap':disabled('/util':behavior(derive(and(atom(A),atom(B)),bottom)::'/bootstrap':pred,!'Contradiction: Empty set', (derive(and(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string)),bottom),derive(and(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string)),atom(!'C'::'/bootstrap':string)),derive(and(and(atom(!'A'::'/bootstrap':string),atom(!'B'::'/bootstrap':string)),atom(!'D'::'/bootstrap':string)),atom(!'C'::'/bootstrap':string))))).
+'/bootstrap':disabled((derive(and(atom(A),atom(B)),C):- \+builtin:equals(A,B),exclusive(A,B))).
